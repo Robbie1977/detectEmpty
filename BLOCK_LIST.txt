@@ -1,14 +1,29 @@
-Folders to BLOCK (no expression in Brain region)
-================================================
+VFB Male CNS Empty Folders Block List
+======================================
 
-These folder codes should be excluded from the VFB Brain viewer for Male CNS, as they contain no expression data in the Brain region:
-
+BRAIN TEMPLATE (VFB_00101567) - Folders with NO expression signal
+------------------------------------------------------------------
 3ler
 
-Details:
-- Total folders analyzed: 98 (including 3ler)
-- Empty Brain folders identified: 1
-- Empty signature: volume.wlz = 1,156 bytes only
-- Smallest non-empty: 21.4 KB (3js7)
-- Largest folder: 210.8 KB (3ftv)
-- Visual verification: 3ler thumbnail shows blank template with zero signal (same as reference 3ftr VNC)
+VNC TEMPLATE (VFB_00200000) - Folders with NO expression signal
+------------------------------------------------------------------
+3ftr
+3ftt
+3ftv
+
+DETECTION METHODOLOGY
+------------------------------------------------------------------
+Empty folder signature: volume.wlz file size < 10 KB
+
+Brain empty: 3ler with volume.wlz = 1,156 bytes
+VNC empty: 3ftr, 3ftt, 3ftv with volume.wlz = 2.3 KB (2,404 bytes) each
+
+Visual verification: All empty folder thumbnails show blank template with zero signal.
+
+ANALYSIS SUMMARY
+------------------------------------------------------------------
+Total folders analyzed: 101 (98 Brain + 3 VNC)
+Empty folders identified: 4 (1 Brain + 3 VNC)
+Volume.wlz file size proved to be the reliable automated detection method
+Tested approaches: total folder size, small wlz files, visual inspection
+Final determination: volume.wlz compressed volumetric data perfectly correlates with expression presence
