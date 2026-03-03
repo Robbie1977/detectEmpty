@@ -3,10 +3,12 @@ Folders to BLOCK (no expression in Brain region)
 
 These folder codes should be excluded from the VFB Brain viewer for Male CNS, as they contain no expression data in the Brain region:
 
-3kle
+3ler
 
 Details:
-- Total folders analyzed: 97
-- Folders with no Brain expression data: 1
-- Base template size (empty folders): 8.34 MB
-- Largest folder (has expression data): 157.03 MB (3ftv)
+- Total folders analyzed: 98 (including 3ler)
+- Empty Brain folders identified: 1
+- Empty signature: volume.wlz = 1,156 bytes only
+- Smallest non-empty: 21.4 KB (3js7)
+- Largest folder: 210.8 KB (3ftv)
+- Visual verification: 3ler thumbnail shows blank template with zero signal (same as reference 3ftr VNC)
