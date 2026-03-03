@@ -1,0 +1,12 @@
+Folders to BLOCK (no expression in Brain region)
+================================================
+
+These folder codes should be excluded from the VFB Brain viewer for Male CNS, as they contain no expression data in the Brain region:
+
+3kle
+
+Details:
+- Total folders analyzed: 97
+- Folders with no Brain expression data: 1
+- Base template size (empty folders): 8.34 MB
+- Largest folder (has expression data): 157.03 MB (3ftv)
