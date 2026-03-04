@@ -9,3 +9,4 @@ __pycache__/
 .vscode/
 output/
 analysis_results.txt
+empty_candidates

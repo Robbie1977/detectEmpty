@@ -1,0 +1,390 @@
+
+======================================================================
+VFB Knowledge Base - Empty Image Folder Detector
+======================================================================
+
+[INFO] Connecting to VFB Knowledge Base...
+[OK] Connected to KB
+
+[INFO] Connecting to VFB Knowledge Base...
+[OK] Connected to KB
+
+[INFO] Querying KB for MaleCNS individuals...
+[OK] Found 331182 unique folders
+
+[INFO] Getting individual registrations...
+
+[OK] Found 331182 registrations
+
+[INFO] Checking 331182 unique folders...
+
+[PROGRESS] 1/331182 folders checked (0 empty)...
+    ✓ [EMPTY] 0000: 2404 bytes < 10000
+[PROGRESS] 2/331182 folders checked (1 empty)...
+[PROGRESS] 3/331182 folders checked (1 empty)...
+    ✓ [EMPTY] 0001: 2404 bytes < 10000
+[PROGRESS] 4/331182 folders checked (2 empty)...
+[PROGRESS] 5/331182 folders checked (2 empty)...
+    ✓ [EMPTY] 0002: 2404 bytes < 10000
+[PROGRESS] 6/331182 folders checked (3 empty)...
+[PROGRESS] 7/331182 folders checked (3 empty)...
+    ✓ [EMPTY] 0003: 2404 bytes < 10000
+[PROGRESS] 8/331182 folders checked (4 empty)...
+[PROGRESS] 9/331182 folders checked (4 empty)...
+    ✓ [EMPTY] 0004: 2404 bytes < 10000
+[PROGRESS] 10/331182 folders checked (5 empty)...
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0005/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0006/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0007/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0008/VFB_00200000/ (network error)
+    ✓ [EMPTY] 0009: 2404 bytes < 10000
+    ✓ [EMPTY] 000a: 2404 bytes < 10000
+    ✓ [EMPTY] 000b: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000c/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000d: 2404 bytes < 10000
+    ✓ [EMPTY] 000e: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000f/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000g: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000h/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000i/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000j/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000k: 2404 bytes < 10000
+    ✓ [EMPTY] 000l: 2404 bytes < 10000
+    ✓ [EMPTY] 000m: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000n/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000o: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000p/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000q/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000r: 2404 bytes < 10000
+    ✓ [EMPTY] 000s: 2404 bytes < 10000
+    ✓ [EMPTY] 000t: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000u/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000v/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000w/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000x/VFB_00200000/ (network error)
+    ✓ [EMPTY] 000y: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/000z/VFB_00200000/ (network error)
+    ✓ [EMPTY] 0010: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0011/VFB_00200000/ (network error)
+    ✓ [EMPTY] 0012: 2404 bytes < 10000
+    ✓ [EMPTY] 0013: 2404 bytes < 10000
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0014/VFB_00200000/ (network error)
+    ✗ [UNREACHABLE] http://www.virtualflybrain.org/data/VFB/i/jrmc/0015/VFB_00200000/ (network error)
+    ✓ [EMPTY] 0016: 2404 bytes < 10000
+    ✓ [EMPTY] 001b: 2404 bytes < 10000
+    ✓ [EMPTY] 001c: 2404 bytes < 10000
+    ✓ [EMPTY] 001d: 2404 bytes < 10000
+    ✓ [EMPTY] 001e: 2404 bytes < 10000
+    ✓ [EMPTY] 001f: 2404 bytes < 10000
+    ✓ [EMPTY] 001i: 2404 bytes < 10000
+    ✓ [EMPTY] 001j: 2404 bytes < 10000
+    ✓ [EMPTY] 001k: 2404 bytes < 10000
+    ✓ [EMPTY] 001l: 2404 bytes < 10000
+    ✓ [EMPTY] 001m: 2404 bytes < 10000
+    ✓ [EMPTY] 001n: 2404 bytes < 10000
+    ✓ [EMPTY] 001o: 2404 bytes < 10000
+    ✓ [EMPTY] 001r: 2404 bytes < 10000
+    ✓ [EMPTY] 001s: 2404 bytes < 10000
+    ✓ [EMPTY] 001v: 2404 bytes < 10000
+    ✓ [EMPTY] 001w: 2404 bytes < 10000
+    ✓ [EMPTY] 001z: 2404 bytes < 10000
+    ✓ [EMPTY] 0022: 2404 bytes < 10000
+    ✓ [EMPTY] 0026: 2404 bytes < 10000
+    ✓ [EMPTY] 0027: 2404 bytes < 10000
+    ✓ [EMPTY] 0028: 2404 bytes < 10000
+    ✓ [EMPTY] 0029: 2404 bytes < 10000
+    ✓ [EMPTY] 002a: 2404 bytes < 10000
+    ✓ [EMPTY] 002b: 2404 bytes < 10000
+    ✓ [EMPTY] 002c: 2404 bytes < 10000
+    ✓ [EMPTY] 002d: 2404 bytes < 10000
+    ✓ [EMPTY] 002e: 2404 bytes < 10000
+    ✓ [EMPTY] 002f: 2404 bytes < 10000
+    ✓ [EMPTY] 002g: 2404 bytes < 10000
+    ✓ [EMPTY] 002i: 2404 bytes < 10000
+    ✓ [EMPTY] 002j: 2404 bytes < 10000
+    ✓ [EMPTY] 002l: 2404 bytes < 10000
+    ✓ [EMPTY] 002m: 2404 bytes < 10000
+    ✓ [EMPTY] 002s: 2404 bytes < 10000
+    ✓ [EMPTY] 002x: 2404 bytes < 10000
+    ✓ [EMPTY] 002y: 2404 bytes < 10000
+    ✓ [EMPTY] 002z: 2404 bytes < 10000
+    ✓ [EMPTY] 0030: 2404 bytes < 10000
+    ✓ [EMPTY] 0031: 2404 bytes < 10000
+    ✓ [EMPTY] 0032: 2404 bytes < 10000
+    ✓ [EMPTY] 0034: 2404 bytes < 10000
+    ✓ [EMPTY] 0035: 2404 bytes < 10000
+    ✓ [EMPTY] 0037: 2404 bytes < 10000
+    ✓ [EMPTY] 0038: 2404 bytes < 10000
+    ✓ [EMPTY] 0039: 2404 bytes < 10000
+    ✓ [EMPTY] 003a: 2404 bytes < 10000
+    ✓ [EMPTY] 003b: 2404 bytes < 10000
+    ✓ [EMPTY] 003c: 2404 bytes < 10000
+    ✓ [EMPTY] 003d: 2404 bytes < 10000
+    ✓ [EMPTY] 003f: 2404 bytes < 10000
+    ✓ [EMPTY] 003g: 2404 bytes < 10000
+    ✓ [EMPTY] 003i: 2404 bytes < 10000
+    ✓ [EMPTY] 003j: 2404 bytes < 10000
+    ✓ [EMPTY] 003k: 2404 bytes < 10000
+    ✓ [EMPTY] 003l: 2404 bytes < 10000
+    ✓ [EMPTY] 003m: 2404 bytes < 10000
+    ✓ [EMPTY] 003r: 2404 bytes < 10000
+    ✓ [EMPTY] 003s: 2404 bytes < 10000
+    ✓ [EMPTY] 003t: 2404 bytes < 10000
+    ✓ [EMPTY] 003u: 2404 bytes < 10000
+    ✓ [EMPTY] 003v: 2404 bytes < 10000
+    ✓ [EMPTY] 003w: 2404 bytes < 10000
+    ✓ [EMPTY] 003x: 2404 bytes < 10000
+    ✓ [EMPTY] 003y: 2404 bytes < 10000
+    ✓ [EMPTY] 0041: 2404 bytes < 10000
+    ✓ [EMPTY] 0044: 2404 bytes < 10000
+    ✓ [EMPTY] 0045: 2404 bytes < 10000
+    ✓ [EMPTY] 0047: 2404 bytes < 10000
+    ✓ [EMPTY] 0048: 2404 bytes < 10000
+    ✓ [EMPTY] 004a: 2404 bytes < 10000
+    ✓ [EMPTY] 004b: 2404 bytes < 10000
+    ✓ [EMPTY] 004c: 2404 bytes < 10000
+    ✓ [EMPTY] 004d: 2404 bytes < 10000
+    ✓ [EMPTY] 004e: 2404 bytes < 10000
+    ✓ [EMPTY] 004f: 2404 bytes < 10000
+    ✓ [EMPTY] 004g: 2404 bytes < 10000
+    ✓ [EMPTY] 004h: 2404 bytes < 10000
+    ✓ [EMPTY] 004i: 2404 bytes < 10000
+    ✓ [EMPTY] 004j: 2404 bytes < 10000
+    ✓ [EMPTY] 004l: 2404 bytes < 10000
+    ✓ [EMPTY] 004m: 2404 bytes < 10000
+    ✓ [EMPTY] 004s: 2404 bytes < 10000
+    ✓ [EMPTY] 004t: 2404 bytes < 10000
+    ✓ [EMPTY] 004u: 2404 bytes < 10000
+    ✓ [EMPTY] 004x: 2404 bytes < 10000
+    ✓ [EMPTY] 004z: 2404 bytes < 10000
+    ✓ [EMPTY] 0055: 2404 bytes < 10000
+    ✓ [EMPTY] 0056: 2404 bytes < 10000
+    ✓ [EMPTY] 0058: 2404 bytes < 10000
+    ✓ [EMPTY] 0059: 2404 bytes < 10000
+    ✓ [EMPTY] 005b: 2404 bytes < 10000
+    ✓ [EMPTY] 005c: 2404 bytes < 10000
+    ✓ [EMPTY] 005d: 2404 bytes < 10000
+    ✓ [EMPTY] 005e: 2404 bytes < 10000
+    ✓ [EMPTY] 005g: 2404 bytes < 10000
+    ✓ [EMPTY] 005j: 2404 bytes < 10000
+    ✓ [EMPTY] 005k: 2404 bytes < 10000
+    ✓ [EMPTY] 005l: 2404 bytes < 10000
+    ✓ [EMPTY] 005m: 2404 bytes < 10000
+    ✓ [EMPTY] 005p: 2404 bytes < 10000
+    ✓ [EMPTY] 005q: 2404 bytes < 10000
+    ✓ [EMPTY] 005s: 2404 bytes < 10000
+    ✓ [EMPTY] 005t: 2404 bytes < 10000
+    ✓ [EMPTY] 005u: 2404 bytes < 10000
+    ✓ [EMPTY] 005w: 2404 bytes < 10000
+    ✓ [EMPTY] 005x: 2404 bytes < 10000
+    ✓ [EMPTY] 005z: 2404 bytes < 10000
+    ✓ [EMPTY] 0060: 2404 bytes < 10000
+    ✓ [EMPTY] 0061: 2404 bytes < 10000
+    ✓ [EMPTY] 0062: 2404 bytes < 10000
+    ✓ [EMPTY] 0063: 2404 bytes < 10000
+    ✓ [EMPTY] 0064: 2404 bytes < 10000
+    ✓ [EMPTY] 0065: 2404 bytes < 10000
+    ✓ [EMPTY] 0066: 2404 bytes < 10000
+    ✓ [EMPTY] 0067: 2404 bytes < 10000
+    ✓ [EMPTY] 0068: 2404 bytes < 10000
+    ✓ [EMPTY] 0069: 2404 bytes < 10000
+    ✓ [EMPTY] 006a: 2404 bytes < 10000
+    ✓ [EMPTY] 006c: 2404 bytes < 10000
+    ✓ [EMPTY] 006d: 2404 bytes < 10000
+    ✓ [EMPTY] 006e: 2404 bytes < 10000
+    ✓ [EMPTY] 006f: 2404 bytes < 10000
+    ✓ [EMPTY] 006h: 2404 bytes < 10000
+    ✓ [EMPTY] 006i: 2404 bytes < 10000
+    ✓ [EMPTY] 006j: 2404 bytes < 10000
+    ✓ [EMPTY] 006l: 2404 bytes < 10000
+    ✓ [EMPTY] 006m: 2404 bytes < 10000
+    ✓ [EMPTY] 006o: 2404 bytes < 10000
+    ✓ [EMPTY] 006q: 2404 bytes < 10000
+    ✓ [EMPTY] 006t: 2404 bytes < 10000
+    ✓ [EMPTY] 006u: 2404 bytes < 10000
+    ✓ [EMPTY] 006w: 2404 bytes < 10000
+[PROGRESS] 500/331182 folders checked (155 empty)...
+    ✓ [EMPTY] 006z: 2404 bytes < 10000
+    ✓ [EMPTY] 0071: 2404 bytes < 10000
+    ✓ [EMPTY] 0072: 2404 bytes < 10000
+    ✓ [EMPTY] 0073: 2404 bytes < 10000
+    ✓ [EMPTY] 0074: 2404 bytes < 10000
+    ✓ [EMPTY] 0075: 2404 bytes < 10000
+    ✓ [EMPTY] 0076: 2404 bytes < 10000
+    ✓ [EMPTY] 0077: 2404 bytes < 10000
+    ✓ [EMPTY] 0079: 2404 bytes < 10000
+    ✓ [EMPTY] 007a: 2404 bytes < 10000
+    ✓ [EMPTY] 007c: 2404 bytes < 10000
+    ✓ [EMPTY] 007f: 2404 bytes < 10000
+    ✓ [EMPTY] 007h: 2404 bytes < 10000
+    ✓ [EMPTY] 007i: 2404 bytes < 10000
+    ✓ [EMPTY] 007j: 2404 bytes < 10000
+    ✓ [EMPTY] 007m: 2404 bytes < 10000
+    ✓ [EMPTY] 007n: 2404 bytes < 10000
+    ✓ [EMPTY] 007o: 2404 bytes < 10000
+    ✓ [EMPTY] 007q: 2404 bytes < 10000
+    ✓ [EMPTY] 007r: 2404 bytes < 10000
+    ✓ [EMPTY] 007s: 2404 bytes < 10000
+    ✓ [EMPTY] 007t: 2404 bytes < 10000
+    ✓ [EMPTY] 007u: 2404 bytes < 10000
+    ✓ [EMPTY] 007v: 2404 bytes < 10000
+    ✓ [EMPTY] 007x: 2404 bytes < 10000
+    ✓ [EMPTY] 007y: 2404 bytes < 10000
+    ✓ [EMPTY] 007z: 2404 bytes < 10000
+    ✓ [EMPTY] 0080: 2404 bytes < 10000
+    ✓ [EMPTY] 0081: 2404 bytes < 10000
+    ✓ [EMPTY] 0082: 2404 bytes < 10000
+    ✓ [EMPTY] 0083: 2404 bytes < 10000
+    ✓ [EMPTY] 0084: 2404 bytes < 10000
+    ✓ [EMPTY] 0085: 2404 bytes < 10000
+    ✓ [EMPTY] 0087: 2404 bytes < 10000
+    ✓ [EMPTY] 0088: 2404 bytes < 10000
+    ✓ [EMPTY] 008a: 2404 bytes < 10000
+    ✓ [EMPTY] 008f: 2404 bytes < 10000
+    ✓ [EMPTY] 008g: 2404 bytes < 10000
+    ✓ [EMPTY] 008h: 2404 bytes < 10000
+    ✓ [EMPTY] 008j: 2404 bytes < 10000
+    ✓ [EMPTY] 008l: 2404 bytes < 10000
+    ✓ [EMPTY] 008n: 2404 bytes < 10000
+    ✓ [EMPTY] 008o: 2404 bytes < 10000
+    ✓ [EMPTY] 008q: 2404 bytes < 10000
+    ✓ [EMPTY] 008r: 2404 bytes < 10000
+    ✓ [EMPTY] 008u: 2404 bytes < 10000
+    ✓ [EMPTY] 008w: 2404 bytes < 10000
+    ✓ [EMPTY] 008x: 2404 bytes < 10000
+    ✓ [EMPTY] 0090: 2404 bytes < 10000
+    ✓ [EMPTY] 0097: 2404 bytes < 10000
+    ✓ [EMPTY] 0098: 2404 bytes < 10000
+    ✓ [EMPTY] 0099: 2404 bytes < 10000
+    ✓ [EMPTY] 009a: 2404 bytes < 10000
+    ✓ [EMPTY] 009d: 2404 bytes < 10000
+    ✓ [EMPTY] 009h: 2404 bytes < 10000
+    ✓ [EMPTY] 009j: 2404 bytes < 10000
+    ✓ [EMPTY] 009m: 2404 bytes < 10000
+    ✓ [EMPTY] 009n: 2404 bytes < 10000
+    ✓ [EMPTY] 009p: 2404 bytes < 10000
+    ✓ [EMPTY] 009q: 2404 bytes < 10000
+    ✓ [EMPTY] 009s: 2404 bytes < 10000
+    ✓ [EMPTY] 009t: 2404 bytes < 10000
+    ✓ [EMPTY] 009u: 2404 bytes < 10000
+    ✓ [EMPTY] 009x: 2404 bytes < 10000
+    ✓ [EMPTY] 009y: 2404 bytes < 10000
+    ✓ [EMPTY] 00a1: 2404 bytes < 10000
+    ✓ [EMPTY] 00a3: 2404 bytes < 10000
+    ✓ [EMPTY] 00a5: 2404 bytes < 10000
+    ✓ [EMPTY] 00a6: 2404 bytes < 10000
+    ✓ [EMPTY] 00a7: 2404 bytes < 10000
+    ✓ [EMPTY] 00a8: 2404 bytes < 10000
+    ✓ [EMPTY] 00aa: 2404 bytes < 10000
+    ✓ [EMPTY] 00ab: 2404 bytes < 10000
+    ✓ [EMPTY] 00ae: 2404 bytes < 10000
+    ✓ [EMPTY] 00ag: 2404 bytes < 10000
+    ✓ [EMPTY] 00ai: 2404 bytes < 10000
+    ✓ [EMPTY] 00ak: 2404 bytes < 10000
+    ✓ [EMPTY] 00al: 2404 bytes < 10000
+    ✓ [EMPTY] 00am: 2404 bytes < 10000
+    ✓ [EMPTY] 00an: 2404 bytes < 10000
+    ✓ [EMPTY] 00aq: 2404 bytes < 10000
+    ✓ [EMPTY] 00at: 2404 bytes < 10000
+    ✓ [EMPTY] 00aw: 2404 bytes < 10000
+    ✓ [EMPTY] 00ax: 2404 bytes < 10000
+    ✓ [EMPTY] 00b0: 2404 bytes < 10000
+    ✓ [EMPTY] 00b1: 2404 bytes < 10000
+    ✓ [EMPTY] 00b2: 2404 bytes < 10000
+    ✓ [EMPTY] 00b3: 2404 bytes < 10000
+    ✓ [EMPTY] 00b6: 2404 bytes < 10000
+    ✓ [EMPTY] 00b7: 2404 bytes < 10000
+    ✓ [EMPTY] 00b8: 2404 bytes < 10000
+    ✓ [EMPTY] 00b9: 2404 bytes < 10000
+    ✓ [EMPTY] 00ba: 2404 bytes < 10000
+    ✓ [EMPTY] 00bc: 2404 bytes < 10000
+    ✓ [EMPTY] 00bf: 2404 bytes < 10000
+    ✓ [EMPTY] 00bg: 2404 bytes < 10000
+    ✓ [EMPTY] 00bh: 2404 bytes < 10000
+    ✓ [EMPTY] 00bi: 2404 bytes < 10000
+    ✓ [EMPTY] 00bj: 2404 bytes < 10000
+    ✓ [EMPTY] 00bm: 2404 bytes < 10000
+    ✓ [EMPTY] 00bo: 2404 bytes < 10000
+    ✓ [EMPTY] 00bq: 2404 bytes < 10000
+    ✓ [EMPTY] 00br: 2404 bytes < 10000
+    ✓ [EMPTY] 00bu: 2404 bytes < 10000
+    ✓ [EMPTY] 00bv: 2404 bytes < 10000
+    ✓ [EMPTY] 00bw: 2404 bytes < 10000
+    ✓ [EMPTY] 00bx: 2404 bytes < 10000
+    ✓ [EMPTY] 00by: 2404 bytes < 10000
+    ✓ [EMPTY] 00bz: 2404 bytes < 10000
+    ✓ [EMPTY] 00c1: 2404 bytes < 10000
+    ✓ [EMPTY] 00c3: 2404 bytes < 10000
+    ✓ [EMPTY] 00c5: 2404 bytes < 10000
+    ✓ [EMPTY] 00c7: 2404 bytes < 10000
+    ✓ [EMPTY] 00c9: 2404 bytes < 10000
+    ✓ [EMPTY] 00ca: 2404 bytes < 10000
+    ✓ [EMPTY] 00cc: 2404 bytes < 10000
+    ✓ [EMPTY] 00cd: 2404 bytes < 10000
+    ✓ [EMPTY] 00cf: 2404 bytes < 10000
+    ✓ [EMPTY] 00cg: 2404 bytes < 10000
+    ✓ [EMPTY] 00cj: 2404 bytes < 10000
+    ✓ [EMPTY] 00ck: 2404 bytes < 10000
+    ✓ [EMPTY] 00cm: 2404 bytes < 10000
+    ✓ [EMPTY] 00cr: 2404 bytes < 10000
+    ✓ [EMPTY] 00cs: 2404 bytes < 10000
+    ✓ [EMPTY] 00cu: 2404 bytes < 10000
+    ✓ [EMPTY] 00cv: 2404 bytes < 10000
+    ✓ [EMPTY] 00cw: 2404 bytes < 10000
+    ✓ [EMPTY] 00cy: 2404 bytes < 10000
+    ✓ [EMPTY] 00cz: 2404 bytes < 10000
+    ✓ [EMPTY] 00d0: 2404 bytes < 10000
+    ✓ [EMPTY] 00d1: 2404 bytes < 10000
+    ✓ [EMPTY] 00d2: 2404 bytes < 10000
+    ✓ [EMPTY] 00d4: 2404 bytes < 10000
+    ✓ [EMPTY] 00d5: 2404 bytes < 10000
+    ✓ [EMPTY] 00d7: 2404 bytes < 10000
+    ✓ [EMPTY] 00d9: 2404 bytes < 10000
+    ✓ [EMPTY] 00dd: 2404 bytes < 10000
+    ✓ [EMPTY] 00df: 2404 bytes < 10000
+Traceback (most recent call last):
+  File "/Users/rcourt/GIT/detectEmpty/kb_block_empty_images.py", line 340, in <module>
+    main()
+    ~~~~^^
+  File "/Users/rcourt/GIT/detectEmpty/kb_block_empty_images.py", line 250, in main
+    wlz_size = get_wlz_size(reg[2])
+  File "/Users/rcourt/GIT/detectEmpty/kb_block_empty_images.py", line 41, in get_wlz_size
+    response = requests.get(url, timeout=10)
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "/Users/rcourt/GIT/detectEmpty/venv/lib/python3.14/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+KeyboardInterrupt

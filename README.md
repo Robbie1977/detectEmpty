@@ -78,6 +78,22 @@ The **volume.wlz** file is the compressed volumetric data representation. Empty 
 - `find_empty_folders.py` - Comparative Brain vs VNC analysis
 - `comprehensive_analysis.py` - All 97 Brain folders scanned for size patterns
 
+## Technical Notes
+
+### Template ID Convention
+When accessing VFB folder URLs and writing Cypher queries, use the **full Template IDs**:
+- Brain: `VFB_00101567` (not VFBc_00101567)
+- VNC: `VFB_00200000` (not VFBc_00200000)
+
+**Folder URLs must use the full IDs:**
+```
+http://www.virtualflybrain.org/data/VFB/i/jrmc/{folder_code}/VFB_00101567/
+                                                               ↑
+                                                    Full template ID
+```
+
+Channel nodes (VFBc_...) are separate display abstractions in the KB; Individual registrations bind to full Template nodes.
+
 ## Installation & Usage
 
 ```bash
@@ -93,6 +109,60 @@ python find_empty_vnc.py     # Find empty VNC folders
 python download_thumbnails.py 1
 open empty_candidates/       # View the smallest wlz thumbnails
 ```
+
+## Analysis Results
+
+### Brain Folders Analyzed: 98 total
+- Empty (wlz < 10 KB): **1 folder** (3ler)
+
+---
+
+## 🆕 VFB Knowledge Base Integration
+
+To **apply these findings to the actual VFB Knowledge Base**, we provide tools to detect empty folders and generate CYPHER update statements for blocking them.
+
+### Quick Start
+
+```bash
+# 1. Test known empty folders
+python batch_test_folders.py --known-only
+
+# 2. Get real KB data and test
+python batch_test_folders.py --input-file kb_registrations.tsv
+
+# 3. Apply generated CYPHER to writable KB instance
+# Copy output CYPHER statements to Neo4j Browser
+```
+
+### Available Tools
+
+| Tool | Purpose | Use When |
+|------|---------|----------|
+| `batch_test_folders.py` | Test folders and generate CYPHER | You have KB registration data |
+| `kb_block_empty_images.py` | Direct KB connection | VFB_neo4j library installed |
+| `format_kb_results.py` | Format Neo4j Browser exports | Converting KB query results |
+
+### Documentation
+
+- **[KB_INTEGRATION_README.md](KB_INTEGRATION_README.md)** - Complete workflow and examples
+- **[KB_INTEGRATION_GUIDE.md](KB_INTEGRATION_GUIDE.md)** - Detailed implementation guide
+- **[EXAMPLE_CYPHER_STATEMENTS.cypher](EXAMPLE_CYPHER_STATEMENTS.cypher)** - Working CYPHER examples
+- **[SAMPLE_GENERATED_CYPHER.cypher](SAMPLE_GENERATED_CYPHER.cypher)** - Sample output format
+
+### How It Works
+
+1. **Query VFB KB** for all MaleCNS registrations and their folders
+2. **Test each folder** for empty images using volume.wlz file size analysis  
+3. **Generate CYPHER** statements to add `block=['No expression in region']` to empty registrations
+4. **Apply to KB** (manual update via Neo4j Browser or API)
+
+### Next Steps
+
+See **[KB_INTEGRATION_README.md](KB_INTEGRATION_README.md)** for:
+- Complete step-by-step workflow
+- Example commands
+- File format specifications
+- Troubleshooting guide
 
 ## Analysis Results
 
