@@ -30,9 +30,16 @@ from neo4j import GraphDatabase
 
 # Empty folder signatures discovered from analysis
 # volume.wlz file sizes for template-only (no expression) folders
+# Based on actual file sizes observed in VFB:
+# - Brain template (VFB_00101567): 1156 bytes when empty
+# - VNC template (VFB_00200000): 2404 bytes when empty
 EMPTY_SIGNATURES = {
-    'VFB_00101567': 10000,  # Brain template - empty threshold < 10 KB
-    'VFB_00200000': 4000,   # VNC template - empty threshold < 4 KB
+    # Template IDs (from folder URLs)
+    'VFB_00101567': 1160,   # Brain template - empty is 1156 bytes
+    'VFB_00200000': 2410,   # VNC template - empty is 2404 bytes
+    # Channel IDs (from KB queries - for backward compatibility)
+    'VFBc_00101567': 1160,  # Brain channel
+    'VFBc_00200000': 2410,  # VNC channel
 }
 
 def get_wlz_size(url: str) -> int:
@@ -69,7 +76,7 @@ def is_empty_folder(folder_url: str, template_id: str) -> tuple:
     
     Args:
         folder_url: Full folder URL (e.g., 'http://www.virtualflybrain.org/data/VFB/i/jrmc/3ler/VFB_00101567/')
-        template_id: Template VFB ID (e.g., 'VFB_00101567' for Brain)
+        template_id: Channel or Template ID (e.g., 'VFBc_00101567' or 'VFB_00101567')
     
     Returns:
         (is_empty: bool, is_reachable: bool) 
@@ -82,8 +89,22 @@ def is_empty_folder(folder_url: str, template_id: str) -> tuple:
         # Cannot determine - assume not empty AND note it wasn't reachable
         return (False, False)
     
-    # Check against template-specific threshold
-    threshold = EMPTY_SIGNATURES.get(template_id, 10000)
+    # Extract actual template ID from folder URL (more reliable than query result)
+    # Folder URL format: http://www.virtualflybrain.org/data/VFB/i/jrmc/XXXXX/VFB_YYYYY/
+    actual_template_id = None
+    if '/VFB_00101567/' in folder_url:
+        actual_template_id = 'VFB_00101567'
+    elif '/VFB_00200000/' in folder_url:
+        actual_template_id = 'VFB_00200000'
+    
+    # Fallback to looking up using both possible formats
+    threshold = EMPTY_SIGNATURES.get(actual_template_id, None)
+    if threshold is None:
+        # Try with the provided template_id (channel ID)
+        threshold = EMPTY_SIGNATURES.get(template_id, None)
+    if threshold is None:
+        # Default to Brain threshold if still not found
+        threshold = 10000
     
     folder_name = folder_url.split('/')[-3]  # Extract folder name like '3ler'
     
