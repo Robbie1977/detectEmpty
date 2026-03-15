@@ -8,6 +8,8 @@ import sys
 from urllib.parse import urljoin
 from datetime import datetime
 
+from kbw_config import get_kb_http_endpoint, get_kbw_settings, get_kb_bolt_uri, get_kb_auth
+
 def test_kb_connectivity():
     """Test various connection methods to VFB KB."""
     
@@ -15,12 +17,21 @@ def test_kb_connectivity():
     print("VFB KB Connectivity Diagnostic")
     print("="*70 + "\n")
     
+    kb_settings = get_kbw_settings()
+    http_endpoint = get_kb_http_endpoint()
+    https_endpoint = http_endpoint
+    if https_endpoint.startswith("http://"):
+        https_endpoint = https_endpoint.replace("http://", "https://", 1)
+
+    bolt_uri = get_kb_bolt_uri()
+    host = kb_settings.get("KBW_HOST", "kb.virtualflybrain.org")
+
     endpoints = {
-        "HTTP REST API (Old)": "http://kb.virtualflybrain.org/db/data/transaction/commit",
-        "HTTPS REST API": "https://kb.virtualflybrain.org/db/data/transaction/commit",
-        "Bolt Protocol": "neo4j://kb.virtualflybrain.org",
-        "Base HTTP": "http://kb.virtualflybrain.org/",
-        "Base HTTPS": "https://kb.virtualflybrain.org/",
+        "HTTP REST API (Old)": http_endpoint,
+        "HTTPS REST API": https_endpoint,
+        "Bolt Protocol": bolt_uri,
+        "Base HTTP": f"http://{host}/",
+        "Base HTTPS": f"https://{host}/",
     }
     
     results = {}
@@ -42,7 +53,7 @@ def test_kb_connectivity():
             }
             
             print(f"  Attempting connection (timeout=5s)...")
-            response = requests.post(endpoint, json=data, auth=('neo4j', 'vfb'), timeout=5)
+            response = requests.post(endpoint, json=data, auth=get_kb_auth(), timeout=5)
             
             print(f"  Status Code: {response.status_code}")
             if response.status_code == 200:
@@ -131,7 +142,7 @@ def test_large_dataset_query():
         print(f"  Timeout: 10 seconds")
         
         start = datetime.now()
-        response = requests.post(endpoint, json=data, auth=('neo4j', 'vfb'), timeout=10)
+        response = requests.post(endpoint, json=data, auth=get_kb_auth(), timeout=10)
         elapsed = (datetime.now() - start).total_seconds()
         
         if response.status_code == 200:

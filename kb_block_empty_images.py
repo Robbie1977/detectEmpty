@@ -28,6 +28,8 @@ from datetime import datetime
 from typing import Dict, List, Tuple, Set
 from neo4j import GraphDatabase
 
+from kbw_config import get_kb_bolt_uri, get_kb_auth, get_kb_http_endpoint
+
 # Empty folder signatures discovered from analysis
 # volume.wlz file sizes for template-only (no expression) folders
 # Based on actual file sizes observed in VFB:
@@ -204,8 +206,8 @@ def main():
     # Try to connect to Neo4j
     neo4j_available = True
     try:
-        print("[INFO] Connecting to VFB Knowledge Base...")
-        driver = GraphDatabase.driver('neo4j://kb.virtualflybrain.org', auth=('neo4j', 'vfb'))
+        print("[INFO] Connecting to VFB Knowledge Base (Bolt)...")
+        driver = GraphDatabase.driver(get_kb_bolt_uri(), auth=get_kb_auth())
         print("[OK] Connected to KB\n")
     except Exception as e:
         print(f"[ERROR] Cannot connect to KB: {e}")
@@ -219,7 +221,7 @@ def main():
             print("[INFO] Connecting to VFB Knowledge Base...")
             # Use HTTP API instead of Bolt
             def neo4j_query(query):
-                url = 'http://kb.virtualflybrain.org/db/data/transaction/commit'
+                url = get_kb_http_endpoint()
                 headers = {'Content-Type': 'application/json'}
                 data = {
                     'statements': [{
@@ -228,7 +230,7 @@ def main():
                         'resultDataContents': ['row']
                     }]
                 }
-                response = requests.post(url, json=data, auth=('neo4j', 'vfb'))
+                response = requests.post(url, json=data, auth=get_kb_auth())
                 response.raise_for_status()
                 result = response.json()
                 if result['results'] and result['results'][0]['data']:

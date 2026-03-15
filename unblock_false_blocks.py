@@ -15,6 +15,8 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+from kbw_config import get_kb_http_endpoint, get_kb_auth
+
 EMPTY_SIGNATURES = {
     'VFB_00101567': 1156,   # Brain template - empty is 1156 bytes
     'VFB_00200000': 2404,   # VNC template - empty is 2404 bytes
@@ -52,7 +54,7 @@ def get_wlz_size(url: str) -> int:
 
 def neo4j_query(query):
     """Query the VFB KB via HTTP API."""
-    url = 'http://kb.virtualflybrain.org/db/data/transaction/commit'
+    url = get_kb_http_endpoint()
     headers = {'Content-Type': 'application/json'}
     data = {
         'statements': [{

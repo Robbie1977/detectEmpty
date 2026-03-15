@@ -10,3 +10,4 @@ __pycache__/
 output/
 analysis_results.txt
 empty_candidates
+.kbw_credentials

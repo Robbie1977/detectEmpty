@@ -131,6 +131,22 @@ Should output:
 - ✓ Query successful
 - ✓ Folder count: 331182
 
+### Credentials & VFBconnect
+
+This project supports keeping KB credentials outside source control in a hidden file named `.kbw_credentials`.
+
+Create `.kbw_credentials` in the repository root (or your home directory) with:
+```text
+KBW_USER=neo4j
+KBW_PASSWORD=vfb
+KBW_HOST=kb.virtualflybrain.org
+# Optional: override endpoints
+# KBW_HTTP_ENDPOINT=http://kb.virtualflybrain.org/db/data/transaction/commit
+# KBW_PDB_HTTP_ENDPOINT=http://pdb.virtualflybrain.org/db/data/transaction/commit
+```
+
+You can use your **VFBconnect** credentials by setting the same keys (or setting the corresponding environment variables).
+
 ### High False Positives in Brain Detection
 
 If seeing Brain files that are not exactly 1156 bytes marked as empty, thresholds are incorrect.
