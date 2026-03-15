@@ -35,11 +35,11 @@ from neo4j import GraphDatabase
 # - VNC template (VFB_00200000): 2404 bytes when empty
 EMPTY_SIGNATURES = {
     # Template IDs (from folder URLs)
-    'VFB_00101567': 1160,   # Brain template - empty is 1156 bytes
-    'VFB_00200000': 2410,   # VNC template - empty is 2404 bytes
+    'VFB_00101567': 1156,   # Brain template - empty is 1156 bytes
+    'VFB_00200000': 2404,   # VNC template - empty is 2404 bytes
     # Channel IDs (from KB queries - for backward compatibility)
-    'VFBc_00101567': 1160,  # Brain channel
-    'VFBc_00200000': 2410,  # VNC channel
+    'VFBc_00101567': 1156,  # Brain channel
+    'VFBc_00200000': 2404,  # VNC channel
 }
 
 def get_wlz_size(url: str) -> int:
@@ -97,18 +97,21 @@ def is_empty_folder(folder_url: str, template_id: str) -> tuple:
     elif '/VFB_00200000/' in folder_url:
         actual_template_id = 'VFB_00200000'
     
-    # Fallback to looking up using both possible formats
-    threshold = EMPTY_SIGNATURES.get(actual_template_id, None)
+# Lookup the expected empty-file size for this template
+    threshold = EMPTY_SIGNATURES.get(actual_template_id)
     if threshold is None:
         # Try with the provided template_id (channel ID)
-        threshold = EMPTY_SIGNATURES.get(template_id, None)
+        threshold = EMPTY_SIGNATURES.get(template_id)
+
+    # If we don't recognize the template, avoid false positives by not classifying
+    # it as empty.
     if threshold is None:
-        # Default to Brain threshold if still not found
-        threshold = 10000
-    
+        return (False, True)
+
     folder_name = folder_url.split('/')[-3]  # Extract folder name like '3ler'
-    
-    if wlz_size < threshold:
+
+    # Empty templates are known to have a consistent file size; use an exact match.
+    if wlz_size == threshold:
         return (True, True)  # Empty and reachable
     else:
         return (False, True)  # Has data and reachable
@@ -135,46 +138,60 @@ RETURN c.short_form as channel, r.folder[0] as folder, tc.label as template
 """
     return cypher.strip()
 
-def generate_summary_cypher(empty_records: List[Dict]) -> str:
-    """
-    Generate a consolidated transaction block with empty folder blocks.
+def generate_summary_cypher(empty_records: List[Dict], unblock_records: List[Dict]) -> str:
+    """Generate a consolidated transaction block with block/unblock statements.
+
     Groups by template for efficiency using r.folder[0] IN [...] syntax.
     """
-    if not empty_records:
-        return "// No empty folders detected"
-    
-    # Group by template
-    by_template = {}
-    for record in empty_records:
-        template = record['template_id']
-        if template not in by_template:
-            by_template[template] = []
-        
-        # The folder is already the full URL from KB
-        folder_url = record['folder']
-        by_template[template].append(folder_url)
-    
+    if not empty_records and not unblock_records:
+        return "// No changes detected"
+
     cypher_block = "// VFB KB Empty Image Folder Block Updates\n"
     cypher_block += f"// Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-    cypher_block += f"// Total empty folders: {len(empty_records)}\n\n"
-    
-    for template_id, folder_urls in sorted(by_template.items()):
-        template_name = f"Brain ({template_id})" if template_id == 'VFB_00101567' else \
-                       f"VNC ({template_id})" if template_id == 'VFB_00200000' else template_id
-        
-        # Extract folder codes for comment
-        folder_codes = ', '.join(url.split('/jrmc/')[1].split('/')[0] for url in folder_urls)
-        folder_list = json.dumps(sorted(folder_urls))
-        
-        cypher_block += f"// Block empty folders in {template_name}\n"
-        cypher_block += f"// Folders: {folder_codes}\n"
-        cypher_block += f"""MATCH (c:Individual)-[r:in_register_with]->(tc:Template {{short_form: '{template_id}'}})
+    cypher_block += f"// Total empty folders to block: {len(empty_records)}\n"
+    cypher_block += f"// Total folders to unblock: {len(unblock_records)}\n\n"
+
+    def group_by_template(records):
+        by_template = {}
+        for record in records:
+            template = record['template_id']
+            by_template.setdefault(template, []).append(record['folder'])
+        return by_template
+
+    if empty_records:
+        by_template = group_by_template(empty_records)
+        for template_id, folder_urls in sorted(by_template.items()):
+            template_name = f"Brain ({template_id})" if template_id == 'VFB_00101567' else \
+                           f"VNC ({template_id})" if template_id == 'VFB_00200000' else template_id
+            folder_codes = ', '.join(url.split('/jrmc/')[1].split('/')[0] for url in folder_urls)
+            folder_list = json.dumps(sorted(folder_urls))
+
+            cypher_block += f"// Block empty folders in {template_name}\n"
+            cypher_block += f"// Folders: {folder_codes}\n"
+            cypher_block += f"""MATCH (c:Individual)-[r:in_register_with]->(tc:Template {{short_form: '{template_id}'}})
 WHERE r.folder[0] IN {folder_list}
 SET r.block = ['No expression in region']
 RETURN c.short_form as channel, r.folder[0] as folder, tc.label as template
 """
-        cypher_block += "\n"
-    
+            cypher_block += "\n"
+
+    if unblock_records:
+        by_template = group_by_template(unblock_records)
+        for template_id, folder_urls in sorted(by_template.items()):
+            template_name = f"Brain ({template_id})" if template_id == 'VFB_00101567' else \
+                           f"VNC ({template_id})" if template_id == 'VFB_00200000' else template_id
+            folder_codes = ', '.join(url.split('/jrmc/')[1].split('/')[0] for url in folder_urls)
+            folder_list = json.dumps(sorted(folder_urls))
+
+            cypher_block += f"// Unblock folders in {template_name} (no longer empty)\n"
+            cypher_block += f"// Folders: {folder_codes}\n"
+            cypher_block += f"""MATCH (c:Individual)-[r:in_register_with]->(tc:Template {{short_form: '{template_id}'}})
+WHERE r.folder[0] IN {folder_list}
+REMOVE r.block
+RETURN c.short_form as channel, r.folder[0] as folder, tc.label as template
+"""
+            cypher_block += "\n"
+
     return cypher_block
 
 def main():
@@ -195,7 +212,8 @@ def main():
         neo4j_available = False
     
     empty_records = []
-    
+    unblock_records = []
+
     if neo4j_available:
         try:
             print("[INFO] Connecting to VFB Knowledge Base...")
@@ -236,7 +254,8 @@ def main():
                         RETURN distinct n.short_form as short_form, 
                                        n.label as label, 
                                        r.folder[0] as folder, 
-                                       tc.short_form as template_id"""
+                                       tc.short_form as template_id, 
+                                       r.block as block"""
             
             print("[INFO] Getting individual registrations...\n")
             registrations = neo4j_query(query2)
@@ -288,11 +307,11 @@ def main():
                     if is_reachable:
                         folder_name = reg[2].split('/')[-3]
                         wlz_size = get_wlz_size(reg[2])
-                        threshold = EMPTY_SIGNATURES.get(reg[3], 10000)
+                        threshold = EMPTY_SIGNATURES.get(reg[3], None)
                         
                         if is_empty:
                             empty_found += 1
-                            print(f"    ✓ [EMPTY] {folder_name}: {wlz_size} bytes < {threshold}")
+                            print(f"    ✓ [EMPTY] {folder_name}: {wlz_size} bytes == {threshold}")
                             
                             # Record all individuals with this registration
                             for r in registrations:
@@ -301,8 +320,23 @@ def main():
                                         'short_form': r[0],
                                         'label': r[1],
                                         'folder': r[2],
-                                        'template_id': r[3]
+                                        'template_id': r[3],
+                                        'wlz_size': wlz_size,
+                                        'block_status': bool(r[4])
                                     })
+                        else:
+                            # Not empty; if it's currently blocked in the KB, we should unblock it
+                            if reg[4]:
+                                for r in registrations:
+                                    if r[2] == reg[2] and r[3] == reg[3]:
+                                        unblock_records.append({
+                                            'short_form': r[0],
+                                            'label': r[1],
+                                            'folder': r[2],
+                                            'template_id': r[3],
+                                            'wlz_size': wlz_size,
+                                            'block_status': True
+                                        })
                     else:
                         failed_count += 1
                         if failed_count <= 20:
@@ -339,11 +373,13 @@ def main():
     print("CYPHER UPDATE STATEMENTS")
     print("="*70 + "\n")
     
-    cypher_output = generate_summary_cypher(empty_records)
+    cypher_output = generate_summary_cypher(empty_records, unblock_records)
     print(cypher_output)
     
     if empty_records:
-        print(f"\n[SUMMARY] Found {len(empty_records)} empty folder registrations\n")
+        print(f"\n[SUMMARY] Found {len(empty_records)} empty folder registrations")
+        if unblock_records:
+            print(f"[SUMMARY] Found {len(unblock_records)} blocked-but-now-nonempty folders (will generate UNBLOCK statements)")
         print("Instructions for KB update:")
         print("1. Copy the CYPHER statements above")
         print("2. Connect to writable KB instance")
@@ -359,7 +395,9 @@ def main():
             json.dump({
                 'timestamp': datetime.now().isoformat(),
                 'total_empty_records': len(empty_records),
+                'total_unblock_records': len(unblock_records),
                 'empty_records': empty_records,
+                'unblock_records': unblock_records,
                 'cypher_statements': cypher_output
             }, f, indent=2)
         print(f"\n[OK] Results saved to {results_file}")

@@ -21,8 +21,8 @@ Empty folders are identified by examining the **volume.wlz** file size in each f
 
 | Template | Empty Size | Detection Logic |
 |----------|-----------|-----------------|
-| Brain | 1156 bytes | Files < 1160 bytes = empty |
-| VNC | 2404 bytes | Files < 2410 bytes = empty |
+| Brain | 1156 bytes | Files == 1156 bytes = empty |
+| VNC | 2404 bytes | Files == 2404 bytes = empty |
 
 **Evidence:** These values are based on analysis of 26,000+ scanned folders, showing 100% consistency in empty template file sizes.
 
@@ -68,7 +68,7 @@ Each empty record in `kb_analysis_results.json`:
   "folder": "http://www.virtualflybrain.org/data/VFB/001a/VFB_00101567/",
   "template_id": "VFBc_00101567",
   "wlz_size": 1156,
-  "threshold_used": 1160
+  "threshold_used": 1156
 }
 ```
 
@@ -114,7 +114,7 @@ Connect to VFB Knowledge Base and identify empty image folders.
 **Function:**
 - Queries VFB KB for all 331,182 MaleCNS registrations
 - Checks each folder's volume.wlz file size
-- Compares against thresholds (1160 bytes for Brain, 2410 for VNC)
+- Compares against exact empty template sizes (1156 bytes for Brain, 2404 bytes for VNC)
 - Generates Cypher blocking statements
 
 ## Troubleshooting
@@ -133,7 +133,7 @@ Should output:
 
 ### High False Positives in Brain Detection
 
-If seeing Brain files 1160-9999 bytes marked as empty, thresholds are incorrect.
+If seeing Brain files that are not exactly 1156 bytes marked as empty, thresholds are incorrect.
 
 **Fix:** Verify kb_block_empty_images.py lines 31-39:
 ```python
